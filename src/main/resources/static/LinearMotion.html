@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AngularJS</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+	<script src="./js/app.js"></script>
+	<script src="./js/service/user_service.js"></script>
+	<script src="./js/controller/user_controller.js"></script>
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <link rel="stylesheet" href="./css/app.css">
+</head>
+
+<body ng-app="myApp">
+
+<div class="generic-container" ng-controller="UserController as ctrl">
+    <div class="panel panel-default">
+        <div class="panel-heading"><span class="lead">Linear Motion Calculator </span></div>
+        <div class="has-error" ng-if="ctrl.errorMessage">
+        <div class="alert alert-danger fade in">
+        <strong>Error: </strong> {{ctrl.errorMessage}}
+        </div>
+        </div>
+        
+ 
+         <div class="formcontainer">
+          <div class="row">
+        <label class="col-md-2 control-lable" for="value">Input:</label>
+        
+ 			<select  ng-model="ctrl.selectedItem" ng-options="item as item.label for item in ctrl.items track by item.id" ></select>
+         	<button type="button" ng-click="ctrl.showFields()" ng-disabled="ctrl.fieldCount == 3" class="btn btn-primary btn-sm">ADD</button>
+         	</div>
+         </div>
+         
+        
+        
+        
+        <div class="formcontainer">       
+				
+            <form name="myForm" ng-submit="ctrl.submit()"  class="form-horizontal">  
+
+				
+				
+                 <div ng-show ="ctrl.showData.iniVelocity == 'true'"  class="form-group col-md-12">
+                        <label class="col-md-2 control-lable" for="value">Initial Velocity</label>
+                        <div class="col-md-7">
+                            <input type="number" step="0.01" ng-model="ctrl.user.initialVelocity" id="initialVelocity" 
+                                   class="form-control input-sm"
+                                   placeholder="Initial Velocity" />
+                        </div>
+                    
+                     
+                
+                
+                
+                <div  ng-show ="ctrl.showData.finVelocity == 'true'" class="form-group col-md-12">
+                        <label class="col-md-2 control-lable" for="value">Final Velocity</label>
+                        <div class="col-md-7">
+                            <input type="number" step="0.01" ng-model="ctrl.user.finalVelocity" id="finalVelocity"
+                                   class="form-control input-sm"
+                                   placeholder="final Velocity"  />
+                        </div>
+                    </div>
+                
+                
+                  <div ng-show ="ctrl.showData.acc == 'true'" class="form-group col-md-12">
+                        <label class="col-md-2 control-lable" for="value">Acceleration</label>
+                        <div class="col-md-7">
+                            <input type="number"  step="0.01" ng-model="ctrl.user.acceleration" id="acceleration"
+                                   class="form-control input-sm"
+                                   placeholder="Acceleration" />
+                        </div>
+                    </div>
+                
+                
+                  <div ng-show ="ctrl.showData.dist == 'true'" class="form-group col-md-12">
+                        <label class="col-md-2 control-lable" for="value">Distance</label>
+                        <div class="col-md-7">
+                            <input type="number" step="0.01" ng-model="ctrl.user.distance" id="distance"
+                                   class="form-control input-sm"
+                                   placeholder="Distance" />
+                        </div>
+                    </div>
+                
+                
+                  <div ng-show ="ctrl.showData.tim == 'true'" class="form-group col-md-12">
+                        <label class="col-md-2 control-lable" for="value">Time</label>
+                        <div class="col-md-7">
+                            <input type="number" step="0.01" ng-model="ctrl.user.time" id="time"
+                                   class="form-control input-sm"
+                                   placeholder="Time" />
+                        </div>
+                    </div>
+                
+
+                <div class="row">
+                    <div class="form-actions floatRight">
+                        <input type="submit" value="Calculate" class="btn btn-primary btn-sm" ng-disabled="ctrl.fieldCount <3"/>
+                        <button type="button" ng-click="ctrl.reset()" class="btn btn-warning btn-sm" >Reset Form</button>
+                    </div>
+                </div>
+                
+            </form>
+        </div>
+    </div>
+    <div class="panel panel-default">
+
+        <!-- Default panel contents -->
+        <div class="panel-heading"><span class="lead">Output Variables</span></div>
+        <div class="tablecontainer">
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>Initial Velocity</th>
+                    <th>Final Velocity</th>
+                    <th>Acceleration</th>
+                    <th>Distance</th>
+                    <th>Time</th>
+                    <th width="20%">
+                </tr>
+                </thead>
+                <tbody>
+                <tr>          
+                    <td>{{ctrl.data.initialVelocity}}</td>
+					<td>{{ctrl.data.finalVelocity}}</td>
+ 					<td>{{ctrl.data.acceleration}}</td>
+ 					<td>{{ctrl.data.distance}}</td>
+ 					<td>{{ctrl.data.time}}</td>
+                </tr> 
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
