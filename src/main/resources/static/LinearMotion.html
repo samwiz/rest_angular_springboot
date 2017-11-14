@@ -22,22 +22,19 @@
         </div>
         </div>
         
- 
-         <div class="formcontainer">
          
-         <div class="row">
-          
-        <label class="col-md-2 control-lable" for="value">Input:</label>
-        
- 			<select  ng-model="ctrl.selectedItem" ng-options="item as item.label for item in ctrl.items track by item.id" ></select>
-         	<button type="button" ng-click="ctrl.showFields()" ng-disabled="ctrl.fieldCount == 3" class="btn btn-primary btn-sm">ADD</button>
-         	
-         </div>
+         
          
         
         
         
-        <div class="formcontainer">       
+        <div class="formcontainer">      
+        
+        <div class="row" class="form-group col-md-12">         
+        	<label class="col-md-2 control-lable" for="value">Input:</label>
+  			<span class="custom-width"><select  ng-model="ctrl.selectedItem" ng-options="item as item.label for item in ctrl.items track by item.id"  class="custom-width"></select></span>
+         	<button type="button" ng-click="ctrl.showFields()" ng-disabled="ctrl.fieldCount == 3" class="btn btn-primary btn-sm">ADD</button>         	
+         </div> 
 				
             <form name="myForm" ng-submit="ctrl.submit()"  class="form-horizontal">  
 

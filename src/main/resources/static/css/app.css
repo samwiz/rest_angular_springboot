@@ -26,9 +26,9 @@ body, .form-control {
 }
 
 .generic-container {
-    width: 80%;
-    margin-left: 20px;
-    margin-top: 20px;
+    width: 650px;
+    margin-left: 200px;
+    margin-top: 75px;
     
     padding: 20px;
     background-color: #EAE7E7;
@@ -38,5 +38,5 @@ body, .form-control {
 }
 
 .custom-width {
-    width: 80px !important;
+    width: 200px !important;
 }
