@@ -24,12 +24,14 @@
         
  
          <div class="formcontainer">
-          <div class="row">
+         
+         <div class="row">
+          
         <label class="col-md-2 control-lable" for="value">Input:</label>
         
  			<select  ng-model="ctrl.selectedItem" ng-options="item as item.label for item in ctrl.items track by item.id" ></select>
          	<button type="button" ng-click="ctrl.showFields()" ng-disabled="ctrl.fieldCount == 3" class="btn btn-primary btn-sm">ADD</button>
-         	</div>
+         	
          </div>
          
         
@@ -48,7 +50,7 @@
                                    class="form-control input-sm"
                                    placeholder="Initial Velocity" />
                         </div>
-                    
+                    </div>
                      
                 
                 
@@ -95,7 +97,7 @@
 
                 <div class="row">
                     <div class="form-actions floatRight">
-                        <input type="submit" value="Calculate" class="btn btn-primary btn-sm" ng-disabled="ctrl.fieldCount <3"/>
+                        <input type="submit" value="Calculate" class="btn btn-primary btn-sm" />
                         <button type="button" ng-click="ctrl.reset()" class="btn btn-warning btn-sm" >Reset Form</button>
                     </div>
                 </div>
@@ -103,6 +105,7 @@
             </form>
         </div>
     </div>
+    
     <div class="panel panel-default">
 
         <!-- Default panel contents -->
